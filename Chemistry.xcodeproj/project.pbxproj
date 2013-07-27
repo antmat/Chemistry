@@ -1,0 +1,369 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CD56C046179BAFF800588698 /* tableview.png in Resources */ = {isa = PBXBuildFile; fileRef = CD56C045179BAFF800588698 /* tableview.png */; };
+		CD56C04A179BC5AD00588698 /* ChemAtom.m in Sources */ = {isa = PBXBuildFile; fileRef = CD56C049179BC5AD00588698 /* ChemAtom.m */; };
+		CD56C04D179BEF5F00588698 /* ChemIon.m in Sources */ = {isa = PBXBuildFile; fileRef = CD56C04C179BEF5F00588698 /* ChemIon.m */; };
+		CD56C050179BFACA00588698 /* ChemSubstance.m in Sources */ = {isa = PBXBuildFile; fileRef = CD56C04F179BFACA00588698 /* ChemSubstance.m */; };
+		CD56C053179BFAD600588698 /* ChemReaction.m in Sources */ = {isa = PBXBuildFile; fileRef = CD56C052179BFAD600588698 /* ChemReaction.m */; };
+		CD56C056179BFD5500588698 /* ChemAtomGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = CD56C055179BFD5500588698 /* ChemAtomGroup.m */; };
+		CDA4071F179ABAD300E392D3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDA4071E179ABAD300E392D3 /* UIKit.framework */; };
+		CDA40721179ABAD300E392D3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDA40720179ABAD300E392D3 /* Foundation.framework */; };
+		CDA40723179ABAD300E392D3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDA40722179ABAD300E392D3 /* CoreGraphics.framework */; };
+		CDA40729179ABAD300E392D3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDA40727179ABAD300E392D3 /* InfoPlist.strings */; };
+		CDA4072B179ABAD300E392D3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA4072A179ABAD300E392D3 /* main.m */; };
+		CDA4072F179ABAD300E392D3 /* ChemAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA4072E179ABAD300E392D3 /* ChemAppDelegate.m */; };
+		CDA40731179ABAD300E392D3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA40730179ABAD300E392D3 /* Default.png */; };
+		CDA40733179ABAD300E392D3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA40732179ABAD300E392D3 /* Default@2x.png */; };
+		CDA40735179ABAD300E392D3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA40734179ABAD300E392D3 /* Default-568h@2x.png */; };
+		CDA40738179ABAD300E392D3 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA40736179ABAD300E392D3 /* MainStoryboard.storyboard */; };
+		CDA4073B179ABAD300E392D3 /* ChemMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA4073A179ABAD300E392D3 /* ChemMasterViewController.m */; };
+		CDA4073E179ABAD300E392D3 /* ChemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA4073D179ABAD300E392D3 /* ChemDetailViewController.m */; };
+		CDA40747179B087700E392D3 /* ChemBondTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA40745179B087700E392D3 /* ChemBondTypeViewController.m */; };
+		CDA40751179B8B4900E392D3 /* MenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA40750179B8B4900E392D3 /* MenuButton.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CD56C045179BAFF800588698 /* tableview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableview.png; sourceTree = "<group>"; };
+		CD56C048179BC5AD00588698 /* ChemAtom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChemAtom.h; sourceTree = "<group>"; };
+		CD56C049179BC5AD00588698 /* ChemAtom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChemAtom.m; sourceTree = "<group>"; };
+		CD56C04B179BEF5F00588698 /* ChemIon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChemIon.h; sourceTree = "<group>"; };
+		CD56C04C179BEF5F00588698 /* ChemIon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChemIon.m; sourceTree = "<group>"; };
+		CD56C04E179BFACA00588698 /* ChemSubstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChemSubstance.h; sourceTree = "<group>"; };
+		CD56C04F179BFACA00588698 /* ChemSubstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChemSubstance.m; sourceTree = "<group>"; };
+		CD56C051179BFAD600588698 /* ChemReaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChemReaction.h; sourceTree = "<group>"; };
+		CD56C052179BFAD600588698 /* ChemReaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChemReaction.m; sourceTree = "<group>"; };
+		CD56C054179BFD5500588698 /* ChemAtomGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChemAtomGroup.h; sourceTree = "<group>"; };
+		CD56C055179BFD5500588698 /* ChemAtomGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChemAtomGroup.m; sourceTree = "<group>"; };
+		CD56C05817A280C300588698 /* ChemData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChemData.h; sourceTree = "<group>"; };
+		CDA4071B179ABAD300E392D3 /* Chemistry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chemistry.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDA4071E179ABAD300E392D3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CDA40720179ABAD300E392D3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CDA40722179ABAD300E392D3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CDA40726179ABAD300E392D3 /* Chemistry-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Chemistry-Info.plist"; sourceTree = "<group>"; };
+		CDA40728179ABAD300E392D3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CDA4072A179ABAD300E392D3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CDA4072C179ABAD300E392D3 /* Chemistry-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Chemistry-Prefix.pch"; sourceTree = "<group>"; };
+		CDA4072D179ABAD300E392D3 /* ChemAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChemAppDelegate.h; sourceTree = "<group>"; };
+		CDA4072E179ABAD300E392D3 /* ChemAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChemAppDelegate.m; sourceTree = "<group>"; };
+		CDA40730179ABAD300E392D3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		CDA40732179ABAD300E392D3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		CDA40734179ABAD300E392D3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		CDA40737179ABAD300E392D3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		CDA40739179ABAD300E392D3 /* ChemMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChemMasterViewController.h; sourceTree = "<group>"; };
+		CDA4073A179ABAD300E392D3 /* ChemMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChemMasterViewController.m; sourceTree = "<group>"; };
+		CDA4073C179ABAD300E392D3 /* ChemDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChemDetailViewController.h; sourceTree = "<group>"; };
+		CDA4073D179ABAD300E392D3 /* ChemDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChemDetailViewController.m; sourceTree = "<group>"; };
+		CDA40744179B087700E392D3 /* ChemBondTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChemBondTypeViewController.h; sourceTree = "<group>"; };
+		CDA40745179B087700E392D3 /* ChemBondTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChemBondTypeViewController.m; sourceTree = "<group>"; };
+		CDA4074F179B8B4900E392D3 /* MenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuButton.h; sourceTree = "<group>"; };
+		CDA40750179B8B4900E392D3 /* MenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuButton.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CDA40718179ABAD300E392D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDA4071F179ABAD300E392D3 /* UIKit.framework in Frameworks */,
+				CDA40721179ABAD300E392D3 /* Foundation.framework in Frameworks */,
+				CDA40723179ABAD300E392D3 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CD56C047179BBB7600588698 /* engine */ = {
+			isa = PBXGroup;
+			children = (
+				CD56C048179BC5AD00588698 /* ChemAtom.h */,
+				CD56C049179BC5AD00588698 /* ChemAtom.m */,
+				CD56C04B179BEF5F00588698 /* ChemIon.h */,
+				CD56C04C179BEF5F00588698 /* ChemIon.m */,
+				CD56C04E179BFACA00588698 /* ChemSubstance.h */,
+				CD56C04F179BFACA00588698 /* ChemSubstance.m */,
+				CD56C051179BFAD600588698 /* ChemReaction.h */,
+				CD56C052179BFAD600588698 /* ChemReaction.m */,
+				CD56C054179BFD5500588698 /* ChemAtomGroup.h */,
+				CD56C055179BFD5500588698 /* ChemAtomGroup.m */,
+				CD56C05817A280C300588698 /* ChemData.h */,
+			);
+			name = engine;
+			sourceTree = "<group>";
+		};
+		CDA40712179ABAD300E392D3 = {
+			isa = PBXGroup;
+			children = (
+				CDA40724179ABAD300E392D3 /* Chemistry */,
+				CDA4071D179ABAD300E392D3 /* Frameworks */,
+				CDA4071C179ABAD300E392D3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CDA4071C179ABAD300E392D3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CDA4071B179ABAD300E392D3 /* Chemistry.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CDA4071D179ABAD300E392D3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CDA4071E179ABAD300E392D3 /* UIKit.framework */,
+				CDA40720179ABAD300E392D3 /* Foundation.framework */,
+				CDA40722179ABAD300E392D3 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CDA40724179ABAD300E392D3 /* Chemistry */ = {
+			isa = PBXGroup;
+			children = (
+				CD56C047179BBB7600588698 /* engine */,
+				CDA4072D179ABAD300E392D3 /* ChemAppDelegate.h */,
+				CDA4072E179ABAD300E392D3 /* ChemAppDelegate.m */,
+				CDA40736179ABAD300E392D3 /* MainStoryboard.storyboard */,
+				CDA40739179ABAD300E392D3 /* ChemMasterViewController.h */,
+				CDA4073A179ABAD300E392D3 /* ChemMasterViewController.m */,
+				CDA4073C179ABAD300E392D3 /* ChemDetailViewController.h */,
+				CDA4073D179ABAD300E392D3 /* ChemDetailViewController.m */,
+				CDA40744179B087700E392D3 /* ChemBondTypeViewController.h */,
+				CDA40745179B087700E392D3 /* ChemBondTypeViewController.m */,
+				CDA40725179ABAD300E392D3 /* Supporting Files */,
+				CDA4074F179B8B4900E392D3 /* MenuButton.h */,
+				CDA40750179B8B4900E392D3 /* MenuButton.m */,
+			);
+			path = Chemistry;
+			sourceTree = "<group>";
+		};
+		CDA40725179ABAD300E392D3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CD56C045179BAFF800588698 /* tableview.png */,
+				CDA40726179ABAD300E392D3 /* Chemistry-Info.plist */,
+				CDA40727179ABAD300E392D3 /* InfoPlist.strings */,
+				CDA4072A179ABAD300E392D3 /* main.m */,
+				CDA4072C179ABAD300E392D3 /* Chemistry-Prefix.pch */,
+				CDA40730179ABAD300E392D3 /* Default.png */,
+				CDA40732179ABAD300E392D3 /* Default@2x.png */,
+				CDA40734179ABAD300E392D3 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CDA4071A179ABAD300E392D3 /* Chemistry */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CDA40741179ABAD300E392D3 /* Build configuration list for PBXNativeTarget "Chemistry" */;
+			buildPhases = (
+				CDA40717179ABAD300E392D3 /* Sources */,
+				CDA40718179ABAD300E392D3 /* Frameworks */,
+				CDA40719179ABAD300E392D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Chemistry;
+			productName = Chemistry;
+			productReference = CDA4071B179ABAD300E392D3 /* Chemistry.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CDA40713179ABAD300E392D3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Chem;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Anton Matveenko";
+			};
+			buildConfigurationList = CDA40716179ABAD300E392D3 /* Build configuration list for PBXProject "Chemistry" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CDA40712179ABAD300E392D3;
+			productRefGroup = CDA4071C179ABAD300E392D3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CDA4071A179ABAD300E392D3 /* Chemistry */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CDA40719179ABAD300E392D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDA40729179ABAD300E392D3 /* InfoPlist.strings in Resources */,
+				CDA40731179ABAD300E392D3 /* Default.png in Resources */,
+				CDA40733179ABAD300E392D3 /* Default@2x.png in Resources */,
+				CDA40735179ABAD300E392D3 /* Default-568h@2x.png in Resources */,
+				CDA40738179ABAD300E392D3 /* MainStoryboard.storyboard in Resources */,
+				CD56C046179BAFF800588698 /* tableview.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CDA40717179ABAD300E392D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDA4072B179ABAD300E392D3 /* main.m in Sources */,
+				CDA4072F179ABAD300E392D3 /* ChemAppDelegate.m in Sources */,
+				CDA4073B179ABAD300E392D3 /* ChemMasterViewController.m in Sources */,
+				CDA4073E179ABAD300E392D3 /* ChemDetailViewController.m in Sources */,
+				CDA40747179B087700E392D3 /* ChemBondTypeViewController.m in Sources */,
+				CDA40751179B8B4900E392D3 /* MenuButton.m in Sources */,
+				CD56C04A179BC5AD00588698 /* ChemAtom.m in Sources */,
+				CD56C04D179BEF5F00588698 /* ChemIon.m in Sources */,
+				CD56C050179BFACA00588698 /* ChemSubstance.m in Sources */,
+				CD56C053179BFAD600588698 /* ChemReaction.m in Sources */,
+				CD56C056179BFD5500588698 /* ChemAtomGroup.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CDA40727179ABAD300E392D3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CDA40728179ABAD300E392D3 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CDA40736179ABAD300E392D3 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CDA40737179ABAD300E392D3 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CDA4073F179ABAD300E392D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CDA40740179ABAD300E392D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CDA40742179ABAD300E392D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Chemistry/Chemistry-Prefix.pch";
+				INFOPLIST_FILE = "Chemistry/Chemistry-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CDA40743179ABAD300E392D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Chemistry/Chemistry-Prefix.pch";
+				INFOPLIST_FILE = "Chemistry/Chemistry-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CDA40716179ABAD300E392D3 /* Build configuration list for PBXProject "Chemistry" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDA4073F179ABAD300E392D3 /* Debug */,
+				CDA40740179ABAD300E392D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CDA40741179ABAD300E392D3 /* Build configuration list for PBXNativeTarget "Chemistry" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDA40742179ABAD300E392D3 /* Debug */,
+				CDA40743179ABAD300E392D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CDA40713179ABAD300E392D3 /* Project object */;
+}
