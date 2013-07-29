@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD0A8FAB17A6A9B40026A3BC /* atom.data in Resources */ = {isa = PBXBuildFile; fileRef = CD0A8FAA17A6A9B40026A3BC /* atom.data */; };
 		CD3E647E17A507450081F099 /* properties.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD3E647D17A507450081F099 /* properties.txt */; };
 		CD3E648017A666B10081F099 /* parser.php in Resources */ = {isa = PBXBuildFile; fileRef = CD3E647F17A666B10081F099 /* parser.php */; };
 		CD56C046179BAFF800588698 /* tableview.png in Resources */ = {isa = PBXBuildFile; fileRef = CD56C045179BAFF800588698 /* tableview.png */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD0A8FAA17A6A9B40026A3BC /* atom.data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = atom.data; sourceTree = "<group>"; };
 		CD3E647D17A507450081F099 /* properties.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = properties.txt; sourceTree = "<group>"; };
 		CD3E647F17A666B10081F099 /* parser.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = parser.php; sourceTree = "<group>"; };
 		CD56C045179BAFF800588698 /* tableview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableview.png; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 		CDA40725179ABAD300E392D3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CD0A8FAA17A6A9B40026A3BC /* atom.data */,
 				CD3E647F17A666B10081F099 /* parser.php */,
 				CD3E647D17A507450081F099 /* properties.txt */,
 				CD56C045179BAFF800588698 /* tableview.png */,
@@ -226,6 +229,7 @@
 				CD56C046179BAFF800588698 /* tableview.png in Resources */,
 				CD3E647E17A507450081F099 /* properties.txt in Resources */,
 				CD3E648017A666B10081F099 /* parser.php in Resources */,
+				CD0A8FAB17A6A9B40026A3BC /* atom.data in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
