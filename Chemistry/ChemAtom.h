@@ -24,12 +24,10 @@
 - (NSString*) formatAsString;
 - (NSDictionary*) bruttoFormula;
 - (double) molarMass;
-- (void) setOxNumbers:(NSDictionary*) oxNums;
 - (NSString*) printOxidationNumbers;
 - (BOOL)isEqual:(id)anObject;
 - (NSUInteger)hash;
 - (bool) isOxidationNumberDetermined;
-- (char) oxidationNumber;
 - (bool) determineOxidationNumber:(NSDictionary*) bruttoFormula;
 
 @property (readonly) NSNumber* number;

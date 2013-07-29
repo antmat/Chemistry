@@ -10,7 +10,10 @@
 #import "ChemAtomGroup.h"
 
 @interface ChemIon : ChemAtomGroup
-
+{
+    @protected
+    NSArray* atomCharges;
+}
 + (NSDictionary*) knownIons;
-
++ (ChemIon*)getKnownIon:(NSString*) ion;
 @end

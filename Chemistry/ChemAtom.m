@@ -704,10 +704,20 @@
 }
 
 - (void) setOxidationNumber:(char) oxNum {
+    isOxidationNumberDetermined = YES;
     oxidationNumber = oxNum;
 }
 - (bool) isOxidationNumberDetermined {
+    return isOxidationNumberDetermined;
+}
+
+- (bool) determineOxidationNumber:(NSDictionary*) bruttoFormula {
     if (isOxidationNumberDetermined) {
+        return YES;
+    }
+    if ([bruttoFormula count] == 1) {
+        oxidationNumber = 0;
+        isOxidationNumberDetermined = YES;
         return YES;
     }
     if ([self.number unsignedCharValue] == 9) { //fluoride
@@ -715,22 +725,40 @@
         oxidationNumber = -1;
         return YES;
     }
+    if ([self.number unsignedCharValue] == 8) { //oxygen
+        isOxidationNumberDetermined = YES;
+        oxidationNumber = -2;
+        return YES;
+    }
+    if ([self.number unsignedCharValue] == 13) { //Aluminium
+        isOxidationNumberDetermined = YES;
+        oxidationNumber = +3;
+        return YES;
+    }
     if ([self.number unsignedCharValue] != 1 &&
-	        [self.group unsignedCharValue] <= 2 &&
-    	    [self.subgroup unsignedCharValue] == 1) {
+        [self.group unsignedCharValue] <= 2 &&
+        [self.subgroup unsignedCharValue] == 1) {
         isOxidationNumberDetermined = YES;
         oxidationNumber = [self.group unsignedCharValue];
         return YES;
     }
-    return NO;
-}
 
-- (bool) determineOxidationNumber:(NSDictionary*) bruttoFormula {
-    
-}
-
-- (void) setOxNumbers:(NSDictionary*) oxNums {
-    self.oxidationNumber = [[oxNums objectForKey:[self name]] shortValue];
+    if ([self.number unsignedCharValue] == 1)
+    {
+        short oxNum = -1;
+        ChemAtom* hydrogen = [[ChemAtom alloc] initWithNumber:[NSNumber numberWithUnsignedChar:1]];
+        for (NSString* key in bruttoFormula) {
+            ChemAtom* atom = [ChemAtom createFromString:key];
+            if(![atom isEqual:hydrogen] && atom.electronegativity >= hydrogen.electronegativity) {
+                oxNum = 1;
+                break;
+            }
+        }
+        oxidationNumber = oxNum;
+        isOxidationNumberDetermined = YES;
+        return YES;
+    }
+	return NO;
 }
 
 - (NSString*) printOxidationNumbers {

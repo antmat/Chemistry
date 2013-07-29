@@ -8,7 +8,7 @@
 
 #import "ChemAtomGroup.h"
 #import "ChemAtom.h"
-
+#import "ChemIon.h"
 
 @implementation ChemAtomGroup
 
@@ -24,26 +24,29 @@
 {
     NSLog(@"ChemAtomGroup initFromString called");
 	if ( self = [super init] ) {
-        oxidationNumber = 0;
-        isOxidationNumberDetermined = NO;
-        isOxidationNumberDeterminedForElements = NO;
-        elements = [[NSMutableArray alloc] init];
-        elementsCount = [[NSMutableArray alloc] init];
-        isComplex = NO;
-		[self parseElements:string];
-        bruttoFormula = nil;
-        molarMass = 0.0;
-        hasError = NO;
+		[self reset];
+        [self parseElements:string];
 	}
 	return self;
 }
 
-- (void) parseElements:(NSString*) string {
-	[self parseElements:string currentIndex:0];
+- (void) reset {
+    oxidationNumber = 0;
+    isOxidationNumberDetermined = NO;
+    isOxidationNumberDeterminedForElements = NO;
+    elements = [[NSMutableArray alloc] init];
+    elementsCount = [[NSMutableArray alloc] init];
+    isComplex = NO;
+    bruttoFormula = nil;
+    molarMass = 0.0;
+    hasError = NO;
 }
 
-- (bool) parseElements:(NSString*) string currentIndex:(NSInteger) index
-{
+- (bool) parseElements:(NSString*) string {
+	return [self parseElements:string currentIndex:0];
+}
+
+- (bool) parseElements:(NSString*) string currentIndex:(NSInteger) index {
     NSLog(@"Parse called with %@, index is %u", string, index);
 	if(string.length == 0) {
 		return true;
@@ -57,7 +60,7 @@
             return false;
         }
 		NSString* bracketContent = [string substringWithRange:NSMakeRange(1, closeBracketPos-1)];
-		ChemAtomGroup* subgroup = [[ChemAtomGroup alloc] initFromString:bracketContent];
+		ChemIon* subgroup = [[ChemIon alloc] initFromString:bracketContent];
 		if(subgroup == nil) {
 			return false;
 		}
@@ -71,7 +74,24 @@
         isComplex = YES;
 		return true;
 	}
-    for (NSInteger i = 1 ; i<=2; i++) {
+    NSArray* indexes;
+    if (useAlternateTreatment) {
+        indexes = [[NSArray alloc] initWithObjects:
+                   [NSNumber numberWithUnsignedChar:2],
+                   [NSNumber numberWithUnsignedChar:1],
+                   nil];
+    }
+    else {
+        indexes = [[NSArray alloc] initWithObjects:
+                   [NSNumber numberWithUnsignedChar:1],
+                   [NSNumber numberWithUnsignedChar:2],
+                   nil];
+    }
+    for (NSNumber* num in indexes) {
+        unsigned char i = [num unsignedCharValue];
+        if (i > [string length]) {
+            continue;
+        }
 	    ChemAtom* atom = [ChemAtom createFromString:[string substringToIndex:i]];
 		if (atom != nil) {
             NSLog(@"found atom");
@@ -85,7 +105,7 @@
 			}
 	        else {
 	            [elements removeObjectsInRange:NSMakeRange(index, [elements count]-index)];
-	            [elementsCount removeObjectsInRange:NSMakeRange(index, [elements count]-index)];
+	            [elementsCount removeObjectsInRange:NSMakeRange(index, [elementsCount count]-index)];
 	        }
 		}
     }
@@ -260,17 +280,19 @@
     if (isOxidationNumberDeterminedForElements) {
         return YES;
     }
-	char currentTotalCharge = oxidationNumber;
+	char currentTotalCharge = -1 * oxidationNumber;
     NSMutableArray* undeterminedElements = [[NSMutableArray alloc] init];
+    unsigned char index = 0;
+    unsigned char undeterminedElementsCount = 0;
     for (id<ChemData> element  in elements) {
-        if (!element.isOxidationNumberDetermined) {
-            if(![element determineOxidationNumber:bFormula]) {
-				[undeterminedElements addObject:element];
-            }
-            else{
-				currentTotalCharge += element.oxidationNumber;
-            }
+        if(![element determineOxidationNumber:bFormula]) {
+            [undeterminedElements addObject:element];
+            undeterminedElementsCount = [[elementsCount objectAtIndex:index] unsignedCharValue];
         }
+        else{
+            currentTotalCharge += element.oxidationNumber * [[elementsCount objectAtIndex:index] unsignedCharValue];
+        }
+        index++;
     }
 
     if ([undeterminedElements count] > 1) {
@@ -279,129 +301,22 @@
     }
 
     if(isOxidationNumberDetermined && [undeterminedElements count] == 1) {
-		[[undeterminedElements objectAtIndex:0] setOxidationNumber:-1*currentTotalCharge];
+		[[undeterminedElements objectAtIndex:0] setOxidationNumber:-1*currentTotalCharge/undeterminedElementsCount];
         return [[undeterminedElements objectAtIndex:0] determineOxidationNumber:bFormula];
     }
-    hasError = YES;
+    if([undeterminedElements count] == 0) {
+        isOxidationNumberDeterminedForElements = YES;
+        return YES;
+    }
+    if (isOxidationNumberDetermined) {
+    	hasError = YES;
+    }
     return NO;
-
-
-/*
-   // short int currentCharge = self.charge;
-    NSMutableDictionary* oxNums = [[NSMutableDictionary alloc] init];
-    NSMutableDictionary* atomsToDetermine = [self.bruttoFormula mutableCopy];
-    if ([atomsToDetermine count] == 1) {
-        [self setOxNumbers:[[NSDictionary alloc] initWithObjectsAndKeys:
-                                [NSNumber numberWithShort:0],
-                                [[elements objectAtIndex:0] name],
-                                nil]
-         ];
-        return YES;
-    }
-    //First fluorine. It should always have -1
-    NSNumber* fluorineCnt = [atomsToDetermine objectForKey:@"F"];
-	if (fluorineCnt != nil) {
-		[oxNums setObject:[NSNumber numberWithShort:-1] forKey:@"F"];
-        [atomsToDetermine removeObjectForKey:@"F"];
-        currentCharge += [fluorineCnt shortValue] * -1;
-    }
-    if([self finishDetermineOxNumbers:oxNums withAtomsToDetermine:atomsToDetermine withCurrentCharge:currentCharge ]) {
-        return YES;
-	}
-
-    NSNumber* hydrogenCnt = [atomsToDetermine objectForKey:@"H"];
-	if (hydrogenCnt != nil) {
-        short oxNum = -1;
-        ChemAtom* hydrogen = [[ChemAtom alloc] initWithNumber:[NSNumber numberWithUnsignedChar:1]];
-        if (fluorineCnt == nil) {
-			for (NSString* key in atomsToDetermine) {
-				ChemAtom* atom = [ChemAtom createFromString:key];
-                if(atom.electronegativity > hydrogen.electronegativity) {
-					oxNum = 1;
-                    break;
-                }
-            }
-        }
-        else {
-            oxNum = 1;
-        }
-		[oxNums setObject:[NSNumber numberWithShort:oxNum] forKey:@"H"];
-        [atomsToDetermine removeObjectForKey:@"H"];
-        currentCharge += [hydrogenCnt shortValue] * oxNum;
-    }
-    if([self finishDetermineOxNumbers:oxNums withAtomsToDetermine:atomsToDetermine withCurrentCharge:currentCharge ]) {
-        return YES;
-	}
-
-    for(unsigned char i = 1; i<=2; i++)
-    {
-        for ( ChemAtom* atom in [ChemAtom getAtomsWithGroup:[NSNumber numberWithUnsignedChar:i]
-                                                   subgroup:[NSNumber numberWithUnsignedChar:1]])
-        {
-            NSNumber* cnt = [atomsToDetermine objectForKey:[atom name]];
-            if (cnt != nil) {
-                [oxNums setObject:[NSNumber numberWithShort:i] forKey:[atom name]];
-                [atomsToDetermine removeObjectForKey:[atom name]];
-                currentCharge += [cnt shortValue] * i;
-            }
-            if([self finishDetermineOxNumbers:oxNums withAtomsToDetermine:atomsToDetermine withCurrentCharge:currentCharge ]) {
-                return YES;
-            }
-        }
-    }
-
-    NSNumber* oxygenCnt = [atomsToDetermine objectForKey:@"O"];
-	if (oxygenCnt != nil) {
-		[oxNums setObject:[NSNumber numberWithShort:-2] forKey:@"O"];
-        [atomsToDetermine removeObjectForKey:@"O"];
-        currentCharge += [oxygenCnt shortValue] * -2;
-    }
-    if([self finishDetermineOxNumbers:oxNums withAtomsToDetermine:atomsToDetermine withCurrentCharge:currentCharge ]) {
-        return YES;
-	}
-
-    NSNumber* aluminiumCnt = [atomsToDetermine objectForKey:@"Al"];
-	if (aluminiumCnt != nil) {
-		[oxNums setObject:[NSNumber numberWithShort:3] forKey:@"Al"];
-        [atomsToDetermine removeObjectForKey:@"O"];
-        currentCharge += [aluminiumCnt shortValue] * 3;
-    }
-    if([self finishDetermineOxNumbers:oxNums withAtomsToDetermine:atomsToDetermine withCurrentCharge:currentCharge ]) {
-        return YES;
-	}
-    hasError = YES;
-	return NO;*/
-}
-
-- (bool) finishDetermineOxNumbers:(NSMutableDictionary*)oxNums
-             withAtomsToDetermine:(NSMutableDictionary*)atomsToDetermine
-                withCurrentCharge:(short int)currentCharge {
-	if ([atomsToDetermine count] != 1) {
-        return NO;
-    }
-    for (id key in atomsToDetermine) {
-        NSNumber* oxNum = [NSNumber numberWithShort: - currentCharge / [[atomsToDetermine objectForKey:key] shortValue]];
-        float delta = (float)currentCharge / [[atomsToDetermine objectForKey:key] floatValue] + [oxNum floatValue];
-        if (delta > 0.01 || delta < -0.01) {
-            hasError = YES;
-            return NO;
-        }
-		[oxNums setObject:oxNum forKey:key];
-    }
-    [atomsToDetermine removeAllObjects];
-    [self setOxNumbers: oxNums];
-    return YES;
-}
-
-- (void) setOxNumbers:(NSDictionary*) oxNums {
-	for (id<ChemData> element in elements) {
-		[element setOxNumbers:oxNums];
-    }
 }
 
 - (NSString*) printOxidationNumbers {
     NSMutableString* ret = [[NSMutableString alloc] init];
-    if([self determineOxidationNumber]) {
+    if([self determineOxidationNumber:self.bruttoFormula]) {
         for (id<ChemData> element in elements) {
             if (![ret isEqual: @""]) {
                 [ret appendString:@","];
@@ -439,7 +354,11 @@
     for (id<ChemData> element in elements) {
         hash = hash*2 + [element hash];
     }
+    return hash;
 }
 
+-(bool) isOxidationNumberDetermined {
+    return isOxidationNumberDetermined;
+}
 
 @end

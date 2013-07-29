@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD3E647E17A507450081F099 /* properties.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD3E647D17A507450081F099 /* properties.txt */; };
+		CD3E648017A666B10081F099 /* parser.php in Resources */ = {isa = PBXBuildFile; fileRef = CD3E647F17A666B10081F099 /* parser.php */; };
 		CD56C046179BAFF800588698 /* tableview.png in Resources */ = {isa = PBXBuildFile; fileRef = CD56C045179BAFF800588698 /* tableview.png */; };
 		CD56C04A179BC5AD00588698 /* ChemAtom.m in Sources */ = {isa = PBXBuildFile; fileRef = CD56C049179BC5AD00588698 /* ChemAtom.m */; };
 		CD56C04D179BEF5F00588698 /* ChemIon.m in Sources */ = {isa = PBXBuildFile; fileRef = CD56C04C179BEF5F00588698 /* ChemIon.m */; };
@@ -30,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD3E647D17A507450081F099 /* properties.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = properties.txt; sourceTree = "<group>"; };
+		CD3E647F17A666B10081F099 /* parser.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = parser.php; sourceTree = "<group>"; };
 		CD56C045179BAFF800588698 /* tableview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableview.png; sourceTree = "<group>"; };
 		CD56C048179BC5AD00588698 /* ChemAtom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChemAtom.h; sourceTree = "<group>"; };
 		CD56C049179BC5AD00588698 /* ChemAtom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChemAtom.m; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 		CDA40725179ABAD300E392D3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CD3E647F17A666B10081F099 /* parser.php */,
+				CD3E647D17A507450081F099 /* properties.txt */,
 				CD56C045179BAFF800588698 /* tableview.png */,
 				CDA40726179ABAD300E392D3 /* Chemistry-Info.plist */,
 				CDA40727179ABAD300E392D3 /* InfoPlist.strings */,
@@ -218,6 +224,8 @@
 				CDA40735179ABAD300E392D3 /* Default-568h@2x.png in Resources */,
 				CDA40738179ABAD300E392D3 /* MainStoryboard.storyboard in Resources */,
 				CD56C046179BAFF800588698 /* tableview.png in Resources */,
+				CD3E647E17A507450081F099 /* properties.txt in Resources */,
+				CD3E648017A666B10081F099 /* parser.php in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

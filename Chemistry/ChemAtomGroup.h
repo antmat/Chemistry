@@ -20,6 +20,7 @@
     bool isOxidationNumberDeterminedForElements;
 	bool hasError;
     char oxidationNumber;
+    bool useAlternateTreatment;
 }
 
 @property (readonly) NSMutableArray* elements;
@@ -32,12 +33,14 @@
 
 - (ChemAtomGroup*)initFromString:(NSString*) string;
 - (ChemAtomGroup*)initFromString:(NSString*)string withCharge:(char)newCharge;
+- (bool) parseElements:(NSString*) string currentIndex:(NSInteger) index;
+- (bool) parseElements:(NSString*) string;
 - (NSString*) formatAsString;
 - (NSString*) printOxidationNumbers;
 - (BOOL)isEqual:(id)anObject;
 - (NSUInteger)hash;
 - (bool) isOxidationNumberDetermined;
-- (char) oxidationNumber;
+- (void) reset;
 
 
 
