@@ -20,6 +20,8 @@ static bool fillingKnownIons = false;
                       @"NH4",
                       [[ChemIon alloc] initFromString:@"SCN" withCharge:-1 withAtomCharges:@[ @-2, @4, @-3]],
                       @"SCN",
+                      [[ChemIon alloc] initFromString:@"CN" withCharge:-1 withAtomCharges:@[ @2, @-3]],
+                      @"CN",
                       nil];
             fillingKnownIons = false;
         }

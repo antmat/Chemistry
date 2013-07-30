@@ -1429,6 +1429,40 @@
 	return values;
 }
 
++ (NSDictionary*) oxidationNumberDeterminationPriority{
+	static  NSDictionary* values;
+	if(values == nil){
+		@synchronized(values){
+            values = @{
+                       @9   :@100, //fluoride
+                       @3   :@99,    //metals of 1a group
+                       @11  :@98,
+                       @19  :@97,
+                       @37  :@96,
+                       @55  :@95,
+                       @87  :@94,
+
+                       @4   :@93,//metals of 2a group
+                       @12  :@92,
+                       @20  :@91,
+                       @38  :@90,
+                       @56  :@89,
+                       @88  :@88,
+
+                       @13  :@87,//aluminium
+
+                       @1   :@86,//hydrogen
+                       @8   :@85//oxygen
+                       
+
+
+                       };
+		}
+	}
+	return values;
+}
+
+
 + (NSArray*) getAtomsWithGroup:(NSNumber*)group subgroup:(NSNumber*)subgroup {
     NSMutableArray* ret = [[NSMutableArray alloc] init];
     unsigned char index = 0;
@@ -1443,7 +1477,9 @@
 }
 
 
-
+- (unsigned char) oxidationNumberDeterminationPriority {
+    return [[[ChemAtom oxidationNumberDeterminationPriority] objectForKey:number] unsignedCharValue];
+}
 -(id)initWithNumber:(NSNumber*) _number {
 	assert([_number integerValue] <255);
 	if (self = [super init])
@@ -1512,22 +1548,51 @@
 }
 
 - (void) setOxidationNumber:(char) oxNum {
-    isOxidationNumberDetermined = YES;
-    oxidationNumber = oxNum;
+    for (NSNumber* possibleOxidationNumber in self.possibleOxidationNumbers)
+    {
+        if([possibleOxidationNumber charValue] == oxNum)
+        {
+            isOxidationNumberDetermined = YES;
+            oxidationNumber = oxNum;
+            return;
+        }
+    }
 }
 - (bool) isOxidationNumberDetermined {
     return isOxidationNumberDetermined;
 }
 
-- (bool) determineOxidationNumber:(NSDictionary*) bruttoFormula {
+- (bool) determineOxidationNumber:(ChemSubstance*) subst {
     if (isOxidationNumberDetermined) {
         return YES;
     }
-    if ([bruttoFormula count] == 1) {
+    if ([subst.bruttoFormula count] == 1) {
         oxidationNumber = 0;
         isOxidationNumberDetermined = YES;
         return YES;
     }
+    if(!subst.isComplex && [subst.bruttoFormula count] == 2) {
+        unsigned char count = 0;
+        ChemAtom* el0 = [subst.elements objectAtIndex:0];
+        ChemAtom* el1 = [subst.elements objectAtIndex:1];
+        ChemAtom* oxElement = (el0.electronegativity > el1.electronegativity) ? el0 : el1;
+        if(oxElement == self)
+        {
+            char oxNumber = 0;
+            for (NSNumber* possibleOxidationNumber in oxElement.possibleOxidationNumbers) {
+                if ([possibleOxidationNumber charValue] < 0) {
+                    count++;
+                    oxNumber = [possibleOxidationNumber charValue];
+                }
+            }
+            if(count == 1){
+                oxidationNumber = oxNumber;
+                isOxidationNumberDetermined = YES;
+                return YES;
+            }
+        }
+    }
+    
     if ([self.number unsignedCharValue] == 9) { //fluoride
         isOxidationNumberDetermined = YES;
         oxidationNumber = -1;
@@ -1555,7 +1620,7 @@
     {
         short oxNum = -1;
         ChemAtom* hydrogen = [[ChemAtom alloc] initWithNumber:[NSNumber numberWithUnsignedChar:1]];
-        for (NSString* key in bruttoFormula) {
+        for (NSString* key in subst.bruttoFormula) {
             ChemAtom* atom = [ChemAtom createFromString:key];
             if(![atom isEqual:hydrogen] && atom.electronegativity >= hydrogen.electronegativity) {
                 oxNum = 1;

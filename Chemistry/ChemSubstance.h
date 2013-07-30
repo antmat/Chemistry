@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 #import "ChemAtomGroup.h"
 @interface ChemSubstance : ChemAtomGroup
-
+- (ChemAtomGroup*)initFromString:(NSString*) string;
 @end

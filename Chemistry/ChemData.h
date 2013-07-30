@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class ChemSubstance;
 @protocol ChemData <NSObject>
 - (NSString*) formatAsString;
 - (NSDictionary*) bruttoFormula;
@@ -15,6 +15,8 @@
 
 - (NSString*) printOxidationNumbers;
 - (bool) isOxidationNumberDetermined;
-- (bool) determineOxidationNumber:(NSDictionary*) bruttoFormula;
+- (bool) determineOxidationNumber:(ChemSubstance*) bruttoFormula;
+
+@property (readonly) unsigned char oxidationNumberDeterminationPriority;
 @property char oxidationNumber;
 @end

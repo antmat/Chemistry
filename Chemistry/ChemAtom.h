@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ChemData.h"
+#import "ChemSubstance.h"
 
 @interface ChemAtom : NSObject <ChemData>
 {
@@ -28,7 +29,7 @@
 - (BOOL)isEqual:(id)anObject;
 - (NSUInteger)hash;
 - (bool) isOxidationNumberDetermined;
-- (bool) determineOxidationNumber:(NSDictionary*) bruttoFormula;
+- (bool) determineOxidationNumber:(ChemSubstance*) bruttoFormula;
 
 @property (readonly) NSNumber* number;
 @property (readonly) NSArray* possibleOxidationNumbers;

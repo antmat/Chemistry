@@ -9,7 +9,7 @@
 #import "ChemAtomGroup.h"
 #import "ChemAtom.h"
 #import "ChemIon.h"
-
+#import "ChemSubstance.h"
 @implementation ChemAtomGroup
 
 - (ChemAtomGroup*)initFromString:(NSString*)string withCharge:(char)newCharge {
@@ -174,9 +174,6 @@
 }
 
 - (char) oxidationNumber {
-    if (!isOxidationNumberDetermined) {
-        [self determineOxidationNumber:self.bruttoFormula];
-    }
 	return oxidationNumber;
 }
 
@@ -270,10 +267,8 @@
     return [[[self class] alloc] initFromString:[self bruttoFormulaAsString]]; //TODO: refactor
 }
 
-- (bool) determineOxidationNumber:(NSDictionary*)bFormula {
-    if (bFormula == nil) {
-        bFormula = self.bruttoFormula;
-    }
+
+- (bool) determineOxidationNumber:(ChemSubstance*)bFormula {
     if(hasError) {
         return NO;
     }
@@ -283,8 +278,14 @@
 	char currentTotalCharge = -1 * oxidationNumber;
     NSMutableArray* undeterminedElements = [[NSMutableArray alloc] init];
     unsigned char index = 0;
+    unsigned char count = [elements count];
     unsigned char undeterminedElementsCount = 0;
     for (id<ChemData> element  in elements) {
+        if(index == (count-1) && undeterminedElementsCount == 0) { //We determine last only by charge if other are determined already
+            [undeterminedElements addObject:element];
+            undeterminedElementsCount = [[elementsCount objectAtIndex:index] unsignedCharValue];
+            break;
+        }
         if(![element determineOxidationNumber:bFormula]) {
             [undeterminedElements addObject:element];
             undeterminedElementsCount = [[elementsCount objectAtIndex:index] unsignedCharValue];
@@ -302,7 +303,12 @@
 
     if(isOxidationNumberDetermined && [undeterminedElements count] == 1) {
 		[[undeterminedElements objectAtIndex:0] setOxidationNumber:-1*currentTotalCharge/undeterminedElementsCount];
-        return [[undeterminedElements objectAtIndex:0] determineOxidationNumber:bFormula];
+        bool ret = [[undeterminedElements objectAtIndex:0] determineOxidationNumber:bFormula];
+        if(ret) {
+            isOxidationNumberDeterminedForElements = YES;
+            return YES;
+        }
+        return NO;
     }
     if([undeterminedElements count] == 0) {
         isOxidationNumberDeterminedForElements = YES;
@@ -316,7 +322,7 @@
 
 - (NSString*) printOxidationNumbers {
     NSMutableString* ret = [[NSMutableString alloc] init];
-    if([self determineOxidationNumber:self.bruttoFormula]) {
+    if(isOxidationNumberDeterminedForElements) {
         for (id<ChemData> element in elements) {
             if (![ret isEqual: @""]) {
                 [ret appendString:@","];
@@ -360,5 +366,7 @@
 -(bool) isOxidationNumberDetermined {
     return isOxidationNumberDetermined;
 }
-
+-(unsigned char)oxidationNumberDeterminationPriority {
+    return 0;
+}
 @end

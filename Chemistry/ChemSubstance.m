@@ -13,12 +13,12 @@
 - (ChemSubstance*) initFromString:(NSString*) string {
 	if (self = [super initFromString:string]) {
         isOxidationNumberDetermined = YES;
-        if (![self determineOxidationNumber:self.bruttoFormula]) {
+        if (![self determineOxidationNumber:self]) {
             useAlternateTreatment = YES;
             [self reset];
             isOxidationNumberDetermined = YES;
             [self parseElements:string];
-            if (![self determineOxidationNumber:self.bruttoFormula]) {
+            if (![self determineOxidationNumber:self]) {
                 return nil;
             }
             else {
@@ -54,5 +54,6 @@
     }
 	return [self parseElements:string currentIndex:0];
 }
+
 
 @end

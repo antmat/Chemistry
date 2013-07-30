@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CD0A8FAB17A6A9B40026A3BC /* atom.data in Resources */ = {isa = PBXBuildFile; fileRef = CD0A8FAA17A6A9B40026A3BC /* atom.data */; };
+		CD0A8FAD17A6CC580026A3BC /* gauss.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0A8FAC17A6CC580026A3BC /* gauss.m */; };
 		CD3E647E17A507450081F099 /* properties.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD3E647D17A507450081F099 /* properties.txt */; };
 		CD3E648017A666B10081F099 /* parser.php in Resources */ = {isa = PBXBuildFile; fileRef = CD3E647F17A666B10081F099 /* parser.php */; };
 		CD56C046179BAFF800588698 /* tableview.png in Resources */ = {isa = PBXBuildFile; fileRef = CD56C045179BAFF800588698 /* tableview.png */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		CD0A8FAA17A6A9B40026A3BC /* atom.data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = atom.data; sourceTree = "<group>"; };
+		CD0A8FAC17A6CC580026A3BC /* gauss.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = gauss.m; sourceTree = "<group>"; };
 		CD3E647D17A507450081F099 /* properties.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = properties.txt; sourceTree = "<group>"; };
 		CD3E647F17A666B10081F099 /* parser.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = parser.php; sourceTree = "<group>"; };
 		CD56C045179BAFF800588698 /* tableview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableview.png; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				CD56C054179BFD5500588698 /* ChemAtomGroup.h */,
 				CD56C055179BFD5500588698 /* ChemAtomGroup.m */,
 				CD56C05817A280C300588698 /* ChemData.h */,
+				CD0A8FAC17A6CC580026A3BC /* gauss.m */,
 			);
 			name = engine;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				CD56C050179BFACA00588698 /* ChemSubstance.m in Sources */,
 				CD56C053179BFAD600588698 /* ChemReaction.m in Sources */,
 				CD56C056179BFD5500588698 /* ChemAtomGroup.m in Sources */,
+				CD0A8FAD17A6CC580026A3BC /* gauss.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
