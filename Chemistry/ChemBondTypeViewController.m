@@ -9,6 +9,7 @@
 #import "ChemBondTypeViewController.h"
 #import "MenuButton.h"
 #import "ChemSubstance.h"
+#import "ChemReaction.h"
 @interface ChemBondTypeViewController ()
 
 @end
@@ -41,7 +42,7 @@
 }
 
 - (IBAction)substanceEntered:(UITextField *)sender {
-	ChemSubstance* subst = [[ChemSubstance alloc] initFromString:[self.textArea text]];
+	/*ChemSubstance* subst = [[ChemSubstance alloc] initFromString:[self.textArea text]];
     if(subst != nil)
     {
         self.substInfoBox.text = [subst printOxidationNumbers];
@@ -49,6 +50,10 @@
         NSLog(@"%@", subst.formatAsString);
         NSLog(@"%@", subst.bruttoFormulaAsString);
         NSLog(@"%F", subst.molarMass);
+    }*/
+    ChemReaction* reaction = [[ChemReaction alloc] initFromString:[self.textArea text]];
+    if(reaction != nil) {
+        self.substInfoBox.text = [reaction formatAsString];
     }
 }
 @end

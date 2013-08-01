@@ -36,6 +36,7 @@
 /* Begin PBXFileReference section */
 		CD0A8FAA17A6A9B40026A3BC /* atom.data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = atom.data; sourceTree = "<group>"; };
 		CD0A8FAC17A6CC580026A3BC /* gauss.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = gauss.m; sourceTree = "<group>"; };
+		CD34881D17A92339008B8F30 /* gauss.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gauss.h; sourceTree = "<group>"; };
 		CD3E647D17A507450081F099 /* properties.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = properties.txt; sourceTree = "<group>"; };
 		CD3E647F17A666B10081F099 /* parser.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = parser.php; sourceTree = "<group>"; };
 		CD56C045179BAFF800588698 /* tableview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableview.png; sourceTree = "<group>"; };
@@ -103,6 +104,7 @@
 				CD56C055179BFD5500588698 /* ChemAtomGroup.m */,
 				CD56C05817A280C300588698 /* ChemData.h */,
 				CD0A8FAC17A6CC580026A3BC /* gauss.m */,
+				CD34881D17A92339008B8F30 /* gauss.h */,
 			);
 			name = engine;
 			sourceTree = "<group>";
