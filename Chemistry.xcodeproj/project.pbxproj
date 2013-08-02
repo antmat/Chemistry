@@ -149,9 +149,9 @@
 				CDA4073D179ABAD300E392D3 /* ChemDetailViewController.m */,
 				CDA40744179B087700E392D3 /* ChemBondTypeViewController.h */,
 				CDA40745179B087700E392D3 /* ChemBondTypeViewController.m */,
-				CDA40725179ABAD300E392D3 /* Supporting Files */,
 				CDA4074F179B8B4900E392D3 /* MenuButton.h */,
 				CDA40750179B8B4900E392D3 /* MenuButton.m */,
+				CDA40725179ABAD300E392D3 /* Supporting Files */,
 			);
 			path = Chemistry;
 			sourceTree = "<group>";
